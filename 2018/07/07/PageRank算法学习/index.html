@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据挖掘," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="PageRank算法学习引言：如何度量一个网页的本身的重要性 某网页被指向的次数越多，重要性越高 越是重要的网页，所链接的网页的重要性也就越高   链向网页E的链接远远大于链向网页C的链接，但是网页C的重要性却远高于网页E，这是因为网页C被网页B所链接，而网页B具有很高的重要性。">
+<meta name="keywords" content="数据挖掘">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PageRank算法学习">
+<meta property="og:url" content="http://yoursite.com/2018/07/07/PageRank算法学习/index.html">
+<meta property="og:site_name" content="Coolfile&#39;s Blog">
+<meta property="og:description" content="PageRank算法学习引言：如何度量一个网页的本身的重要性 某网页被指向的次数越多，重要性越高 越是重要的网页，所链接的网页的重要性也就越高   链向网页E的链接远远大于链向网页C的链接，但是网页C的重要性却远高于网页E，这是因为网页C被网页B所链接，而网页B具有很高的重要性。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/%E5%BC%95%E8%A8%80.png">
+<meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/2.jpg">
+<meta property="og:updated_time" content="2018-07-07T06:07:35.935Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PageRank算法学习">
+<meta name="twitter:description" content="PageRank算法学习引言：如何度量一个网页的本身的重要性 某网页被指向的次数越多，重要性越高 越是重要的网页，所链接的网页的重要性也就越高   链向网页E的链接远远大于链向网页C的链接，但是网页C的重要性却远高于网页E，这是因为网页C被网页B所链接，而网页B具有很高的重要性。">
+<meta name="twitter:image" content="http://pbfm1j187.bkt.clouddn.com/%E5%BC%95%E8%A8%80.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/07/PageRank算法学习/"/>
+
+
+
+
+
+  <title>PageRank算法学习 | Coolfile's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Coolfile's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hello,world</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/07/PageRank算法学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="学妹的绯闻男友">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Coolfile's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">PageRank算法学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-07T13:08:55+08:00">
+                2018-07-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,577
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="PageRank算法学习"><a href="#PageRank算法学习" class="headerlink" title="PageRank算法学习"></a>PageRank算法学习</h1><h2 id="引言：如何度量一个网页的本身的重要性"><a href="#引言：如何度量一个网页的本身的重要性" class="headerlink" title="引言：如何度量一个网页的本身的重要性"></a>引言：如何度量一个网页的本身的重要性</h2><ol>
+<li>某网页被指向的次数越多，重要性越高</li>
+<li>越是重要的网页，所链接的网页的重要性也就越高</li>
+</ol>
+<p><img src="http://pbfm1j187.bkt.clouddn.com/%E5%BC%95%E8%A8%80.png" alt="引言"></p>
+<p>链向网页E的链接远远大于链向网页C的链接，但是网页C的重要性却远高于网页E，这是因为网页C被网页B所链接，而网页B具有很高的重要性。</p>
+<a id="more"></a>
+<h2 id="PageRank算法的相关概念"><a href="#PageRank算法的相关概念" class="headerlink" title="PageRank算法的相关概念"></a>PageRank算法的相关概念</h2><h3 id="PR值"><a href="#PR值" class="headerlink" title="PR值"></a>PR值</h3><p>用来评价网页的重要性，PR值越大越重要，其级别从0到10级。一般PR值达到4，就是一个很不错的网站。</p>
+<h3 id="阻尼系数"><a href="#阻尼系数" class="headerlink" title="阻尼系数"></a>阻尼系数</h3><p>阻尼系数d定义为用户不断随机点击链接的概率，所以，它取决于点击的次数，被设定为0-1之间。d的值越高，继续点击链接的概率就越大。因此，用户停止点击并随机冲浪至另一页面的概率在式子中用常数(1-d)表示。无论入站链接如何，随机冲浪至一个页面的概率总是(1-d)。(1-d)本身也就是页面本身所具有的Pagerank 值。</p>
+<h2 id="PageRank算法核心思想"><a href="#PageRank算法核心思想" class="headerlink" title="PageRank算法核心思想"></a>PageRank算法核心思想</h2><p>PageRank通过网络浩瀚的超链接关系来确定一个页面的等级。Google把从A页面到B页面的链接解释为A页面给B页面投票，Google根据投票来源（甚至来源的来源，即链接到A页面的页面）和投票目标的等级来决定新的等级。这样，PageRank会根据网页B所收到的投票数量来评估该网页的重要性。此外，PageRank还会评估每个投票网页的重要性，因为某些重要网页的投票被认为具有较高的价值，这样，它所链接的网页就能获得较高的价值。</p>
+<h2 id="PR值的计算"><a href="#PR值的计算" class="headerlink" title="PR值的计算"></a>PR值的计算</h2><p>$$PR(A)=\frac{1-d}{N}+d*\sum_{i=1}^{n}\frac{PR(X_i)}{C(X_i)}$$</p>
+<ul>
+<li>N：网络中网页的总数</li>
+<li>d：阻尼系数，一般取值为0.85</li>
+<li>PR(Xi):网页Xi的PR值</li>
+<li>C(Xi): 网页Xi链出的网页数</li>
+<li>PR(Xi)/C(Xi): 根据链出总数，平分了一个页面的PR值</li>
+</ul>
+<h3 id="PR值的取决因素"><a href="#PR值的取决因素" class="headerlink" title="PR值的取决因素"></a>PR值的取决因素</h3><ul>
+<li>链入网页数</li>
+<li>链入网页的质量</li>
+<li>链入网页的链出网页数</li>
+</ul>
+<p>根据上面的公式，可以计算出每个网页的PR值，在不断迭代，趋于平稳时，即得到最终的PR值。所以只要证明在不断的迭代过程中，PR值能够趋于平稳即可。</p>
+<h2 id="算法过程"><a href="#算法过程" class="headerlink" title="算法过程"></a>算法过程</h2><div align="center"><br><br><img src="http://pbfm1j187.bkt.clouddn.com/2.jpg" alt=""><br><br></div>
+
+<p>上图的邻接矩阵可以表示为</p>
+<p>$$<br>\left[<br>\begin{matrix}<br>    0 &amp; 1 &amp; 1 &amp; 1 \<br>    1 &amp; 0 &amp; 0 &amp; 1 \<br>    0 &amp; 0 &amp; 1 &amp; 0 \<br>    0 &amp; 1 &amp; 1 &amp; 0<br>    \end{matrix}<br>\right]<br>$$</p>
+<p>然后将每一行除以该行非零数字之和（链出网页的数目）得到网页链接概率矩阵：</p>
+<p>$$<br>\left[<br>\begin{matrix}<br>    0 &amp; 1/3 &amp; 1/3 &amp; 1/3 \<br>    1/2 &amp; 0 &amp; 0 &amp; 1/2 \<br>    0 &amp; 0 &amp; 1 &amp; 0 \<br>    0 &amp; 1/2 &amp; 1/2 &amp; 0<br>    \end{matrix}<br>\right]<br>$$</p>
+<p>对其转置得到概率转移矩阵：</p>
+<p>$$<br>\left[<br>\begin{matrix}<br>    0 &amp; 1/2 &amp; 0 &amp; 0 \<br>    1/3 &amp; 0 &amp; 0 &amp; 1/2 \<br>    1/3 &amp; 0 &amp; 1 &amp; 1/2 \<br>    1/3 &amp; 1/2 &amp; 0 &amp; 0<br>    \end{matrix}<br>\right]<br>$$</p>
+<p>设概率转移矩阵为P，则P[i][j]表示从网页j跳转到网页i的概率。<br>定义矩阵A：</p>
+<p>$A=d<em>P+\frac{1-d}{N}</em>ee^T$</p>
+<p>公式解释：</p>
+<ul>
+<li>P为概率转移矩阵</li>
+<li>e为n维的全一行</li>
+</ul>
+<p>在迭代时网页的PR值计算如下，其中Rn表示第n次迭代时各网页组成的列向量</p>
+<p>$R_{n+1}=A*R_n$</p>
+<p>于是PR值的计算就变为了一个马尔科夫过程，所以只要证明马尔科夫过程收敛即可。<br>若一个马尔可夫过程收敛，则概率转移矩阵需要满足以下条件：</p>
+<blockquote>
+<p>A为随机矩阵<br>A是不可约的<br>A是非周期的</p>
+</blockquote>
+<p>随机矩阵又叫概率矩阵或Markov矩阵，满足以下条件：<br>$a_{ij}$为矩阵$A$中第$i$行第$j$列的元素<br>则$$\forall i=1\dots n,a_{ij}\ge0,$$<br>$$\forall i=1 \dots n,\sum_{j=1}^{n}a_{ij}=1$$<br>显然我们的A矩阵所有元素都大于等于0，并且每一列的元素和都为1</p>
+<blockquote>
+<p>不可约矩阵：方针A是不可约的当且仅当与A对应的有向图是强联通的。有向图G=(V,E)是强联通的当且仅当对每一对节点对u,v∈V，存在从u到v的路径。因为我们在之前设定用户在浏览页面的时候有确定概率通过输入网址的方式访问一个随机网页，所以A矩阵同样满足不可约的要求<br>A是非周期的：所谓周期性，体现在Markov链的周期性上。即若A是周期性的，那么这个Markov链的状态就是周期性变化的。因为A是素矩阵（素矩阵指自身的某个次幂为正矩阵的矩阵），所以A是非周期的。</p>
+</blockquote>
+<p>所以，马尔科夫过程收敛，即PageRank算法经过迭代后是收敛的。<br>最终，求解PR值的公式如下：$lim_{n\to\infty}A^nX$,X是每个网页初始PR值组成的列向量。</p>
+<h2 id="幂法求解PR值"><a href="#幂法求解PR值" class="headerlink" title="幂法求解PR值"></a>幂法求解PR值</h2><p>X 设任意一个初始向量, 即设置初始每个网页的 PageRank值均。一般为1。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">R = AX;</span><br><span class="line"><span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (|X - R| &lt;  e)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//如果最后两次的结果近似或者相同，返回R</span></span><br><span class="line">        <span class="keyword">return</span> R;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        X =R;</span><br><span class="line">        R = AX;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><h3 id="PageRank算法优点"><a href="#PageRank算法优点" class="headerlink" title="PageRank算法优点"></a>PageRank算法优点</h3><p>是一个与查询无关的静态算法，所有网页的PageRank值通过离线计算获得；有效减少在线查询时的计算量，极大降低了查询响应时间。</p>
+<h3 id="PageRank算法缺点"><a href="#PageRank算法缺点" class="headerlink" title="PageRank算法缺点"></a>PageRank算法缺点</h3><ul>
+<li>一些权威网页往往是相互不链接的，比如新浪、搜狐、网易以及腾讯这些大的门户之间，基本是不相互链接的，学术领域也是这样。</li>
+<li>人们的查询具有主题特征，PageRank忽略了主题相关性，导致结果的相关性和主题性降低</li>
+<li>旧的页面等级会比新页面高。因为即使是非常好的新页面也不会有很多上游链接，除非它是某个站点的子站点。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+    
+      <div>
+        
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+        ------ 本文结束 ------</div>
+    
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+    <div>    
+    
+    
+    <ul class="post-copyright">
+      <li class="post-copyright-author">
+          <strong>本文作者：</strong>学妹的绯闻男友
+      </li>
+      <li class="post-copyright-link">
+        <strong>本文链接：</strong>
+        <a href="/2018/07/07/PageRank算法学习/" title="PageRank算法学习">2018/07/07/PageRank算法学习/</a>
+      </li>
+      <li class="post-copyright-license">
+        <strong>版权： </strong>
+        本站文章均采用 <a href="http://coolfire.xyz/licenses/by-nc-sa/3.0/cn/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0 CN</a> 许可协议，请勿用于商业，转载注明出处！
+      </li>
+    </ul>
+    
+    </div>
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据挖掘/" rel="tag"># 数据挖掘</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/06/北航2016年机试第一题/" rel="next" title="北航2016年机试第一题">
+                <i class="fa fa-chevron-left"></i> 北航2016年机试第一题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="学妹的绯闻男友" />
+            
+              <p class="site-author-name" itemprop="name">学妹的绯闻男友</p>
+              <p class="site-description motion-element" itemprop="description">专业造BUG</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/banshiliuli" target="_blank" title="Github">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Github</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="undefined" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-globe"></i>QQ</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PageRank算法学习"><span class="nav-number">1.</span> <span class="nav-text">PageRank算法学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言：如何度量一个网页的本身的重要性"><span class="nav-number">1.1.</span> <span class="nav-text">引言：如何度量一个网页的本身的重要性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PageRank算法的相关概念"><span class="nav-number">1.2.</span> <span class="nav-text">PageRank算法的相关概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PR值"><span class="nav-number">1.2.1.</span> <span class="nav-text">PR值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阻尼系数"><span class="nav-number">1.2.2.</span> <span class="nav-text">阻尼系数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PageRank算法核心思想"><span class="nav-number">1.3.</span> <span class="nav-text">PageRank算法核心思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PR值的计算"><span class="nav-number">1.4.</span> <span class="nav-text">PR值的计算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PR值的取决因素"><span class="nav-number">1.4.1.</span> <span class="nav-text">PR值的取决因素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法过程"><span class="nav-number">1.5.</span> <span class="nav-text">算法过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#幂法求解PR值"><span class="nav-number">1.6.</span> <span class="nav-text">幂法求解PR值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">1.7.</span> <span class="nav-text">小结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PageRank算法优点"><span class="nav-number">1.7.1.</span> <span class="nav-text">PageRank算法优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PageRank算法缺点"><span class="nav-number">1.7.2.</span> <span class="nav-text">PageRank算法缺点</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">学妹的绯闻男友</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">2.7k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
