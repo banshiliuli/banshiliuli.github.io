@@ -7,7 +7,7 @@
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+  <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -88,8 +88,7 @@
 <meta property="og:description" content="PageRank算法学习引言：如何度量一个网页的本身的重要性 某网页被指向的次数越多，重要性越高 越是重要的网页，所链接的网页的重要性也就越高   链向网页E的链接远远大于链向网页C的链接，但是网页C的重要性却远高于网页E，这是因为网页C被网页B所链接，而网页B具有很高的重要性。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/%E5%BC%95%E8%A8%80.png">
-<meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/2.jpg">
-<meta property="og:updated_time" content="2018-07-07T06:07:35.935Z">
+<meta property="og:updated_time" content="2018-07-07T06:31:13.013Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PageRank算法学习">
 <meta name="twitter:description" content="PageRank算法学习引言：如何度量一个网页的本身的重要性 某网页被指向的次数越多，重要性越高 越是重要的网页，所链接的网页的重要性也就越高   链向网页E的链接远远大于链向网页C的链接，但是网页C的重要性却远高于网页E，这是因为网页C被网页B所链接，而网页B具有很高的重要性。">
@@ -140,7 +139,7 @@
 
 
   <!-- 页面点击小红心 -->
-  <script type="text/javascript" src="/js/src/love.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -150,7 +149,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -341,7 +340,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,577
+                  1,469
                 </span>
               
 
@@ -376,8 +375,7 @@
 <h2 id="PageRank算法的相关概念"><a href="#PageRank算法的相关概念" class="headerlink" title="PageRank算法的相关概念"></a>PageRank算法的相关概念</h2><h3 id="PR值"><a href="#PR值" class="headerlink" title="PR值"></a>PR值</h3><p>用来评价网页的重要性，PR值越大越重要，其级别从0到10级。一般PR值达到4，就是一个很不错的网站。</p>
 <h3 id="阻尼系数"><a href="#阻尼系数" class="headerlink" title="阻尼系数"></a>阻尼系数</h3><p>阻尼系数d定义为用户不断随机点击链接的概率，所以，它取决于点击的次数，被设定为0-1之间。d的值越高，继续点击链接的概率就越大。因此，用户停止点击并随机冲浪至另一页面的概率在式子中用常数(1-d)表示。无论入站链接如何，随机冲浪至一个页面的概率总是(1-d)。(1-d)本身也就是页面本身所具有的Pagerank 值。</p>
 <h2 id="PageRank算法核心思想"><a href="#PageRank算法核心思想" class="headerlink" title="PageRank算法核心思想"></a>PageRank算法核心思想</h2><p>PageRank通过网络浩瀚的超链接关系来确定一个页面的等级。Google把从A页面到B页面的链接解释为A页面给B页面投票，Google根据投票来源（甚至来源的来源，即链接到A页面的页面）和投票目标的等级来决定新的等级。这样，PageRank会根据网页B所收到的投票数量来评估该网页的重要性。此外，PageRank还会评估每个投票网页的重要性，因为某些重要网页的投票被认为具有较高的价值，这样，它所链接的网页就能获得较高的价值。</p>
-<h2 id="PR值的计算"><a href="#PR值的计算" class="headerlink" title="PR值的计算"></a>PR值的计算</h2><p>$$PR(A)=\frac{1-d}{N}+d*\sum_{i=1}^{n}\frac{PR(X_i)}{C(X_i)}$$</p>
-<ul>
+<h2 id="PR值的计算"><a href="#PR值的计算" class="headerlink" title="PR值的计算"></a>PR值的计算</h2><script type="math/tex; mode=display">PR(A)=\frac{1-d}{N}+d*\sum_{i=1}^{n}\frac{PR(X_i)}{C(X_i)}</script><ul>
 <li>N：网络中网页的总数</li>
 <li>d：阻尼系数，一般取值为0.85</li>
 <li>PR(Xi):网页Xi的PR值</li>
@@ -390,15 +388,40 @@
 <li>链入网页的链出网页数</li>
 </ul>
 <p>根据上面的公式，可以计算出每个网页的PR值，在不断迭代，趋于平稳时，即得到最终的PR值。所以只要证明在不断的迭代过程中，PR值能够趋于平稳即可。</p>
-<h2 id="算法过程"><a href="#算法过程" class="headerlink" title="算法过程"></a>算法过程</h2><div align="center"><br><br><img src="http://pbfm1j187.bkt.clouddn.com/2.jpg" alt=""><br><br></div>
+<h2 id="算法过程"><a href="#算法过程" class="headerlink" title="算法过程"></a>算法过程</h2><div align="center">
+
+![](http://pbfm1j187.bkt.clouddn.com/2.jpg)
+
+</div>
 
 <p>上图的邻接矩阵可以表示为</p>
-<p>$$<br>\left[<br>\begin{matrix}<br>    0 &amp; 1 &amp; 1 &amp; 1 \<br>    1 &amp; 0 &amp; 0 &amp; 1 \<br>    0 &amp; 0 &amp; 1 &amp; 0 \<br>    0 &amp; 1 &amp; 1 &amp; 0<br>    \end{matrix}<br>\right]<br>$$</p>
-<p>然后将每一行除以该行非零数字之和（链出网页的数目）得到网页链接概率矩阵：</p>
-<p>$$<br>\left[<br>\begin{matrix}<br>    0 &amp; 1/3 &amp; 1/3 &amp; 1/3 \<br>    1/2 &amp; 0 &amp; 0 &amp; 1/2 \<br>    0 &amp; 0 &amp; 1 &amp; 0 \<br>    0 &amp; 1/2 &amp; 1/2 &amp; 0<br>    \end{matrix}<br>\right]<br>$$</p>
-<p>对其转置得到概率转移矩阵：</p>
-<p>$$<br>\left[<br>\begin{matrix}<br>    0 &amp; 1/2 &amp; 0 &amp; 0 \<br>    1/3 &amp; 0 &amp; 0 &amp; 1/2 \<br>    1/3 &amp; 0 &amp; 1 &amp; 1/2 \<br>    1/3 &amp; 1/2 &amp; 0 &amp; 0<br>    \end{matrix}<br>\right]<br>$$</p>
-<p>设概率转移矩阵为P，则P[i][j]表示从网页j跳转到网页i的概率。<br>定义矩阵A：</p>
+<script type="math/tex; mode=display">
+\left[
+\begin{matrix}
+    0 & 1 & 1 & 1 \\
+    1 & 0 & 0 & 1 \\
+    0 & 0 & 1 & 0 \\
+    0 & 1 & 1 & 0
+    \end{matrix}
+\right]</script><p>然后将每一行除以该行非零数字之和（链出网页的数目）得到网页链接概率矩阵：</p>
+<script type="math/tex; mode=display">
+\left[
+\begin{matrix}
+    0 & 1/3 & 1/3 & 1/3 \\
+    1/2 & 0 & 0 & 1/2 \\
+    0 & 0 & 1 & 0 \\
+    0 & 1/2 & 1/2 & 0
+    \end{matrix}
+\right]</script><p>对其转置得到概率转移矩阵：</p>
+<script type="math/tex; mode=display">
+\left[
+\begin{matrix}
+    0 & 1/2 & 0 & 0 \\
+    1/3 & 0 & 0 & 1/2 \\
+    1/3 & 0 & 1 & 1/2 \\
+    1/3 & 1/2 & 0 & 0
+    \end{matrix}
+\right]</script><p>设概率转移矩阵为P，则P[i][j]表示从网页j跳转到网页i的概率。<br>定义矩阵A：</p>
 <p>$A=d<em>P+\frac{1-d}{N}</em>ee^T$</p>
 <p>公式解释：</p>
 <ul>
@@ -411,12 +434,13 @@
 <blockquote>
 <p>A为随机矩阵<br>A是不可约的<br>A是非周期的</p>
 </blockquote>
-<p>随机矩阵又叫概率矩阵或Markov矩阵，满足以下条件：<br>$a_{ij}$为矩阵$A$中第$i$行第$j$列的元素<br>则$$\forall i=1\dots n,a_{ij}\ge0,$$<br>$$\forall i=1 \dots n,\sum_{j=1}^{n}a_{ij}=1$$<br>显然我们的A矩阵所有元素都大于等于0，并且每一列的元素和都为1</p>
+<p>随机矩阵又叫概率矩阵或Markov矩阵，满足以下条件：<br>$a_{ij}$为矩阵$A$中第$i$行第$j$列的元素<br>则<script type="math/tex">\forall i=1\dots n,a_{ij}\ge0,</script></p>
+<script type="math/tex; mode=display">\forall i=1 \dots n,\sum_{j=1}^{n}a_{ij}=1</script><p>显然我们的A矩阵所有元素都大于等于0，并且每一列的元素和都为1</p>
 <blockquote>
 <p>不可约矩阵：方针A是不可约的当且仅当与A对应的有向图是强联通的。有向图G=(V,E)是强联通的当且仅当对每一对节点对u,v∈V，存在从u到v的路径。因为我们在之前设定用户在浏览页面的时候有确定概率通过输入网址的方式访问一个随机网页，所以A矩阵同样满足不可约的要求<br>A是非周期的：所谓周期性，体现在Markov链的周期性上。即若A是周期性的，那么这个Markov链的状态就是周期性变化的。因为A是素矩阵（素矩阵指自身的某个次幂为正矩阵的矩阵），所以A是非周期的。</p>
 </blockquote>
 <p>所以，马尔科夫过程收敛，即PageRank算法经过迭代后是收敛的。<br>最终，求解PR值的公式如下：$lim_{n\to\infty}A^nX$,X是每个网页初始PR值组成的列向量。</p>
-<h2 id="幂法求解PR值"><a href="#幂法求解PR值" class="headerlink" title="幂法求解PR值"></a>幂法求解PR值</h2><p>X 设任意一个初始向量, 即设置初始每个网页的 PageRank值均。一般为1。</p>
+<h2 id="幂法求解PR值"><a href="#幂法求解PR值" class="headerlink" title="幂法求解PR值"></a>幂法求解PR值</h2><p>X 设任意一个初始向量, 即设置初始每个网页的PageRank值均等。一般为1。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">R = AX;</span><br><span class="line"><span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (|X - R| &lt;  e)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//如果最后两次的结果近似或者相同，返回R</span></span><br><span class="line">        <span class="keyword">return</span> R;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        X =R;</span><br><span class="line">        R = AX;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><h3 id="PageRank算法优点"><a href="#PageRank算法优点" class="headerlink" title="PageRank算法优点"></a>PageRank算法优点</h3><p>是一个与查询无关的静态算法，所有网页的PageRank值通过离线计算获得；有效减少在线查询时的计算量，极大降低了查询响应时间。</p>
 <h3 id="PageRank算法缺点"><a href="#PageRank算法缺点" class="headerlink" title="PageRank算法缺点"></a>PageRank算法缺点</h3><ul>
@@ -674,7 +698,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">2.7k</span>
+    <span title="Site words total count">2.6k</span>
   
 </div>
 
@@ -875,24 +899,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
