@@ -88,7 +88,8 @@
 <meta property="og:description" content="PageRank算法学习引言：如何度量一个网页的本身的重要性 某网页被指向的次数越多，重要性越高 越是重要的网页，所链接的网页的重要性也就越高   链向网页E的链接远远大于链向网页C的链接，但是网页C的重要性却远高于网页E，这是因为网页C被网页B所链接，而网页B具有很高的重要性。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/%E5%BC%95%E8%A8%80.png">
-<meta property="og:updated_time" content="2018-07-07T06:31:13.013Z">
+<meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/2.jpg">
+<meta property="og:updated_time" content="2018-07-07T06:33:24.656Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PageRank算法学习">
 <meta name="twitter:description" content="PageRank算法学习引言：如何度量一个网页的本身的重要性 某网页被指向的次数越多，重要性越高 越是重要的网页，所链接的网页的重要性也就越高   链向网页E的链接远远大于链向网页C的链接，但是网页C的重要性却远高于网页E，这是因为网页C被网页B所链接，而网页B具有很高的重要性。">
@@ -340,7 +341,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,469
+                  1,461
                 </span>
               
 
@@ -388,12 +389,7 @@
 <li>链入网页的链出网页数</li>
 </ul>
 <p>根据上面的公式，可以计算出每个网页的PR值，在不断迭代，趋于平稳时，即得到最终的PR值。所以只要证明在不断的迭代过程中，PR值能够趋于平稳即可。</p>
-<h2 id="算法过程"><a href="#算法过程" class="headerlink" title="算法过程"></a>算法过程</h2><div align="center">
-
-![](http://pbfm1j187.bkt.clouddn.com/2.jpg)
-
-</div>
-
+<h2 id="算法过程"><a href="#算法过程" class="headerlink" title="算法过程"></a>算法过程</h2><p><img src="http://pbfm1j187.bkt.clouddn.com/2.jpg" alt=""></p>
 <p>上图的邻接矩阵可以表示为</p>
 <script type="math/tex; mode=display">
 \left[
@@ -421,21 +417,19 @@
     1/3 & 0 & 1 & 1/2 \\
     1/3 & 1/2 & 0 & 0
     \end{matrix}
-\right]</script><p>设概率转移矩阵为P，则P[i][j]表示从网页j跳转到网页i的概率。<br>定义矩阵A：</p>
-<p>$A=d<em>P+\frac{1-d}{N}</em>ee^T$</p>
+\right]</script><p>设概率转移矩阵为P，则P[i][j]表示从网页j跳转到网页i的概率。<br>定义矩阵A：$A=d<em>P+\frac{1-d}{N}</em>ee^T$</p>
 <p>公式解释：</p>
 <ul>
 <li>P为概率转移矩阵</li>
 <li>e为n维的全一行</li>
 </ul>
-<p>在迭代时网页的PR值计算如下，其中Rn表示第n次迭代时各网页组成的列向量</p>
-<p>$R_{n+1}=A*R_n$</p>
+<p>在迭代时网页的PR值计算如下，其中Rn表示第n次迭代时各网页组成的列向量$R_{n+1}=A*R_n$</p>
 <p>于是PR值的计算就变为了一个马尔科夫过程，所以只要证明马尔科夫过程收敛即可。<br>若一个马尔可夫过程收敛，则概率转移矩阵需要满足以下条件：</p>
 <blockquote>
 <p>A为随机矩阵<br>A是不可约的<br>A是非周期的</p>
 </blockquote>
-<p>随机矩阵又叫概率矩阵或Markov矩阵，满足以下条件：<br>$a_{ij}$为矩阵$A$中第$i$行第$j$列的元素<br>则<script type="math/tex">\forall i=1\dots n,a_{ij}\ge0,</script></p>
-<script type="math/tex; mode=display">\forall i=1 \dots n,\sum_{j=1}^{n}a_{ij}=1</script><p>显然我们的A矩阵所有元素都大于等于0，并且每一列的元素和都为1</p>
+<p>随机矩阵又叫概率矩阵或Markov矩阵，满足以下条件：$a_{ij}$为矩阵$A$中第$i$行第$j$列的元素</p>
+<script type="math/tex; mode=display">\forall i=1\dots n,a_{ij}\ge0,</script><script type="math/tex; mode=display">\forall i=1 \dots n,\sum_{j=1}^{n}a_{ij}=1</script><p>显然我们的A矩阵所有元素都大于等于0，并且每一列的元素和都为1</p>
 <blockquote>
 <p>不可约矩阵：方针A是不可约的当且仅当与A对应的有向图是强联通的。有向图G=(V,E)是强联通的当且仅当对每一对节点对u,v∈V，存在从u到v的路径。因为我们在之前设定用户在浏览页面的时候有确定概率通过输入网址的方式访问一个随机网页，所以A矩阵同样满足不可约的要求<br>A是非周期的：所谓周期性，体现在Markov链的周期性上。即若A是周期性的，那么这个Markov链的状态就是周期性变化的。因为A是素矩阵（素矩阵指自身的某个次幂为正矩阵的矩阵），所以A是非周期的。</p>
 </blockquote>
