@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="神经网络入门摘要 最近在学习TensorFlow，接触到了神经网络的学习。">
+<meta name="description" content="神经网络入门摘要 最近在学习TensorFlow，接触到了神经网络的学习。 分类神经网络最重要的用途是分类，为了让大家对分类有个直观的认识，咱们先看几个例子：  垃圾邮件识别：现在有一封电子邮件，把出现在里面的所有词汇提取出来，送进一个机器里，机器需要判断这封邮件是否是垃圾邮件。 疾病判断：病人到医院去做了一大堆肝功、尿检测验，把测验结果送进一个机器里，机器需要判断这个病人是否得病，得的什么病。">
 <meta name="keywords" content="神经网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="神经网络">
 <meta property="og:url" content="http://yoursite.com/2018/07/07/神经网络/index.html">
 <meta property="og:site_name" content="Coolfile&#39;s Blog">
-<meta property="og:description" content="神经网络入门摘要 最近在学习TensorFlow，接触到了神经网络的学习。">
+<meta property="og:description" content="神经网络入门摘要 最近在学习TensorFlow，接触到了神经网络的学习。 分类神经网络最重要的用途是分类，为了让大家对分类有个直观的认识，咱们先看几个例子：  垃圾邮件识别：现在有一封电子邮件，把出现在里面的所有词汇提取出来，送进一个机器里，机器需要判断这封邮件是否是垃圾邮件。 疾病判断：病人到医院去做了一大堆肝功、尿检测验，把测验结果送进一个机器里，机器需要判断这个病人是否得病，得的什么病。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/5.10.jpg">
 <meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/1.png">
@@ -96,10 +96,10 @@
 <meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/5.6.jpg">
 <meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/5.7.jpg">
 <meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/5.8.jpg">
-<meta property="og:updated_time" content="2018-07-09T08:22:01.179Z">
+<meta property="og:updated_time" content="2018-07-09T17:07:45.220Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="神经网络">
-<meta name="twitter:description" content="神经网络入门摘要 最近在学习TensorFlow，接触到了神经网络的学习。">
+<meta name="twitter:description" content="神经网络入门摘要 最近在学习TensorFlow，接触到了神经网络的学习。 分类神经网络最重要的用途是分类，为了让大家对分类有个直观的认识，咱们先看几个例子：  垃圾邮件识别：现在有一封电子邮件，把出现在里面的所有词汇提取出来，送进一个机器里，机器需要判断这封邮件是否是垃圾邮件。 疾病判断：病人到医院去做了一大堆肝功、尿检测验，把测验结果送进一个机器里，机器需要判断这个病人是否得病，得的什么病。">
 <meta name="twitter:image" content="http://pbfm1j187.bkt.clouddn.com/5.10.jpg">
 
 
@@ -375,7 +375,6 @@
       
         <h1 id="神经网络入门"><a href="#神经网络入门" class="headerlink" title="神经网络入门"></a>神经网络入门</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p><img src="http://pbfm1j187.bkt.clouddn.com/5.10.jpg" width="75%" height="50%"></p>
 <p>最近在学习TensorFlow，接触到了神经网络的学习。</p>
-<a id="more"></a>
 <h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>神经网络最重要的用途是分类，为了让大家对分类有个直观的认识，咱们先看几个例子：</p>
 <ol>
 <li>垃圾邮件识别：现在有一封电子邮件，把出现在里面的所有词汇提取出来，送进一个机器里，机器需要判断这封邮件是否是垃圾邮件。</li>
@@ -386,6 +385,7 @@
 <p>分类器的输入是一个数值向量，叫做特征（向量）。在第一个例子里，分类器的输入是一堆0、1值，表示字典里的每一个词是否在邮件中出现，比如向量(1,1,0,0,0……)就表示这封邮件里只出现了两个词abandon和abnormal；第二个例子里，分类器的输入是一堆化验指标；第三个例子里，分类器的输入是照片，假如每一张照片都是320*240像素的红绿蓝三通道彩色照片，那么分类器的输入就是一个长度为320*240*3=230400的向量。</p>
 <p>分类器的输出也是数值。第一个例子中，输出1表示邮件是垃圾邮件，输出0则说明邮件是正常邮件；第二个例子中，输出0表示健康，输出1表示有甲肝，输出2表示有乙肝，输出3表示有饼干等等；第三个例子中，输出0表示图片中是狗，输出1表示是猫。</p>
 <p>分类器的目标就是让正确分类的比例尽可能高。一般我们需要首先收集一些样本，人为标记上正确分类结果，然后用这些标记好的数据训练分类器，训练好的分类器就可以在新来的特征向量上工作了。</p>
+<a id="more"></a>
 <h2 id="神经元"><a href="#神经元" class="headerlink" title="神经元"></a>神经元</h2><p>咱们假设分类器的输入是通过某种途径获得的两个值，输出是0和1，比如分别代表猫和狗。现在有一些样本：</p>
 <p><img src="http://pbfm1j187.bkt.clouddn.com/1.png" alt=""></p>
 <p>大家想想，最简单地把这两组特征向量分开的方法是啥？当然是在两组数据中间画一条竖直线，直线左边是狗，右边是猫，分类器就完成了。以后来了新的向量，凡是落在直线左边的都是狗，落在右边的都是猫。<br>一条直线把平面一分为二，一个平面把三维空间一分为二，一个n-1维超平面把n维空间一分为二，两边分属不同的两类，这种分类器就叫做神经元。</p>
