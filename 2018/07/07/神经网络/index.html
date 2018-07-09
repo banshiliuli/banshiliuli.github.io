@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="数据挖掘," />
+  <meta name="keywords" content="神经网络," />
 
 
 
@@ -79,21 +79,28 @@
 
 
 
-<meta name="description" content="PageRank算法学习引言：如何度量一个网页的本身的重要性 某网页被指向的次数越多，重要性越高 越是重要的网页，所链接的网页的重要性也就越高   链向网页E的链接远远大于链向网页C的链接，但是网页C的重要性却远高于网页E，这是因为网页C被网页B所链接，而网页B具有很高的重要性。">
-<meta name="keywords" content="数据挖掘">
+<meta name="description" content="神经网络入门摘要 最近在学习TensorFlow，接触到了神经网络的学习，语言比较清晰易懂，日后有时间会补充一些数学基础的相关知识。">
+<meta name="keywords" content="神经网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PageRank算法学习">
-<meta property="og:url" content="http://yoursite.com/2018/07/07/PageRank算法学习/index.html">
+<meta property="og:title" content="神经网络">
+<meta property="og:url" content="http://yoursite.com/2018/07/07/神经网络/index.html">
 <meta property="og:site_name" content="Coolfile&#39;s Blog">
-<meta property="og:description" content="PageRank算法学习引言：如何度量一个网页的本身的重要性 某网页被指向的次数越多，重要性越高 越是重要的网页，所链接的网页的重要性也就越高   链向网页E的链接远远大于链向网页C的链接，但是网页C的重要性却远高于网页E，这是因为网页C被网页B所链接，而网页B具有很高的重要性。">
+<meta property="og:description" content="神经网络入门摘要 最近在学习TensorFlow，接触到了神经网络的学习，语言比较清晰易懂，日后有时间会补充一些数学基础的相关知识。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/%E5%BC%95%E8%A8%80.png">
-<meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/2.jpg">
-<meta property="og:updated_time" content="2018-07-07T06:46:21.737Z">
+<meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/5.9.jpg">
+<meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/1.png">
+<meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/5.2.jpg">
+<meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/5.2.jpg">
+<meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/5.4.jpg">
+<meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/5.5.jpg">
+<meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/5.6.jpg">
+<meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/5.7.jpg">
+<meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/5.8.jpg">
+<meta property="og:updated_time" content="2018-07-09T08:01:08.490Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PageRank算法学习">
-<meta name="twitter:description" content="PageRank算法学习引言：如何度量一个网页的本身的重要性 某网页被指向的次数越多，重要性越高 越是重要的网页，所链接的网页的重要性也就越高   链向网页E的链接远远大于链向网页C的链接，但是网页C的重要性却远高于网页E，这是因为网页C被网页B所链接，而网页B具有很高的重要性。">
-<meta name="twitter:image" content="http://pbfm1j187.bkt.clouddn.com/%E5%BC%95%E8%A8%80.png">
+<meta name="twitter:title" content="神经网络">
+<meta name="twitter:description" content="神经网络入门摘要 最近在学习TensorFlow，接触到了神经网络的学习，语言比较清晰易懂，日后有时间会补充一些数学基础的相关知识。">
+<meta name="twitter:image" content="http://pbfm1j187.bkt.clouddn.com/5.9.jpg">
 
 
 
@@ -123,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/07/PageRank算法学习/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/07/神经网络/"/>
 
 
 
 
 
-  <title>PageRank算法学习 | Coolfile's Blog</title>
+  <title>神经网络 | Coolfile's Blog</title>
   
 
 
@@ -258,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/07/PageRank算法学习/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/07/神经网络/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="学妹的绯闻男友">
@@ -275,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PageRank算法学习</h1>
+          <h1 class="post-title" itemprop="name headline">神经网络</h1>
         
 
         <div class="post-meta">
@@ -287,7 +294,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-07T13:08:55+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-07T22:49:37+08:00">
                 2018-07-07
               </time>
             
@@ -341,7 +348,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,452
+                  2,765
                 </span>
               
 
@@ -366,81 +373,49 @@
       
 
       
-        <h1 id="PageRank算法学习"><a href="#PageRank算法学习" class="headerlink" title="PageRank算法学习"></a>PageRank算法学习</h1><h2 id="引言：如何度量一个网页的本身的重要性"><a href="#引言：如何度量一个网页的本身的重要性" class="headerlink" title="引言：如何度量一个网页的本身的重要性"></a>引言：如何度量一个网页的本身的重要性</h2><ol>
-<li>某网页被指向的次数越多，重要性越高</li>
-<li>越是重要的网页，所链接的网页的重要性也就越高</li>
-</ol>
-<p><img src="http://pbfm1j187.bkt.clouddn.com/%E5%BC%95%E8%A8%80.png" alt="引言"></p>
-<p>链向网页E的链接远远大于链向网页C的链接，但是网页C的重要性却远高于网页E，这是因为网页C被网页B所链接，而网页B具有很高的重要性。</p>
+        <h1 id="神经网络入门"><a href="#神经网络入门" class="headerlink" title="神经网络入门"></a>神经网络入门</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p><img src="http://pbfm1j187.bkt.clouddn.com/5.9.jpg" alt=""></p>
+<p>最近在学习TensorFlow，接触到了神经网络的学习，语言比较清晰易懂，日后有时间会补充一些数学基础的相关知识。</p>
 <a id="more"></a>
-<h2 id="PageRank算法的相关概念"><a href="#PageRank算法的相关概念" class="headerlink" title="PageRank算法的相关概念"></a>PageRank算法的相关概念</h2><h3 id="PR值"><a href="#PR值" class="headerlink" title="PR值"></a>PR值</h3><p>用来评价网页的重要性，PR值越大越重要，其级别从0到10级。一般PR值达到4，就是一个很不错的网站。</p>
-<h3 id="阻尼系数"><a href="#阻尼系数" class="headerlink" title="阻尼系数"></a>阻尼系数</h3><p>阻尼系数d定义为用户不断随机点击链接的概率，所以，它取决于点击的次数，被设定为0-1之间。d的值越高，继续点击链接的概率就越大。因此，用户停止点击并随机冲浪至另一页面的概率在式子中用常数(1-d)表示。无论入站链接如何，随机冲浪至一个页面的概率总是(1-d)。(1-d)本身也就是页面本身所具有的Pagerank 值。</p>
-<h2 id="PageRank算法核心思想"><a href="#PageRank算法核心思想" class="headerlink" title="PageRank算法核心思想"></a>PageRank算法核心思想</h2><p>PageRank通过网络浩瀚的超链接关系来确定一个页面的等级。Google把从A页面到B页面的链接解释为A页面给B页面投票，Google根据投票来源（甚至来源的来源，即链接到A页面的页面）和投票目标的等级来决定新的等级。这样，PageRank会根据网页B所收到的投票数量来评估该网页的重要性。此外，PageRank还会评估每个投票网页的重要性，因为某些重要网页的投票被认为具有较高的价值，这样，它所链接的网页就能获得较高的价值。</p>
-<h2 id="PR值的计算"><a href="#PR值的计算" class="headerlink" title="PR值的计算"></a>PR值的计算</h2><script type="math/tex; mode=display">PR(A)=\frac{1-d}{N}+d*\sum_{i=1}^{n}\frac{PR(X_i)}{C(X_i)}</script><ul>
-<li>N：网络中网页的总数</li>
-<li>d：阻尼系数，一般取值为0.85</li>
-<li>PR(Xi):网页Xi的PR值</li>
-<li>C(Xi): 网页Xi链出的网页数</li>
-<li>PR(Xi)/C(Xi): 根据链出总数，平分了一个页面的PR值</li>
-</ul>
-<h3 id="PR值的取决因素"><a href="#PR值的取决因素" class="headerlink" title="PR值的取决因素"></a>PR值的取决因素</h3><ul>
-<li>链入网页数</li>
-<li>链入网页的质量</li>
-<li>链入网页的链出网页数</li>
-</ul>
-<p>根据上面的公式，可以计算出每个网页的PR值，在不断迭代，趋于平稳时，即得到最终的PR值。所以只要证明在不断的迭代过程中，PR值能够趋于平稳即可。</p>
-<h2 id="算法过程"><a href="#算法过程" class="headerlink" title="算法过程"></a>算法过程</h2><p><img src="http://pbfm1j187.bkt.clouddn.com/2.jpg" alt=""></p>
-<p>上图的邻接矩阵可以表示为</p>
-<script type="math/tex; mode=display">
-\left[
-\begin{matrix}
-    0 & 1 & 1 & 1 \\
-    1 & 0 & 0 & 1 \\
-    0 & 0 & 1 & 0 \\
-    0 & 1 & 1 & 0
-    \end{matrix}
-\right]</script><p>然后将每一行除以该行非零数字之和（链出网页的数目）得到网页链接概率矩阵：</p>
-<script type="math/tex; mode=display">
-\left[
-\begin{matrix}
-    0 & 1/3 & 1/3 & 1/3 \\
-    1/2 & 0 & 0 & 1/2 \\
-    0 & 0 & 1 & 0 \\
-    0 & 1/2 & 1/2 & 0
-    \end{matrix}
-\right]</script><p>对其转置得到概率转移矩阵：</p>
-<script type="math/tex; mode=display">
-\left[
-\begin{matrix}
-    0 & 1/2 & 0 & 0 \\
-    1/3 & 0 & 0 & 1/2 \\
-    1/3 & 0 & 1 & 1/2 \\
-    1/3 & 1/2 & 0 & 0
-    \end{matrix}
-\right]</script><p>设概率转移矩阵为P，则P[i][j]表示从网页j跳转到网页i的概率。<br>定义矩阵<script type="math/tex">A=d*P+\frac{1-d}{N}*ee^T</script><br>公式解释：</p>
-<ul>
-<li>P为概率转移矩阵</li>
-<li>e为n维的全一行</li>
-</ul>
-<p>在迭代时网页的PR值计算如下，其中Rn表示第n次迭代时各网页组成的列向量$R_{n+1}=A*R_n$</p>
-<p>于是PR值的计算就变为了一个马尔科夫过程，所以只要证明马尔科夫过程收敛即可。<br>若一个马尔可夫过程收敛，则概率转移矩阵需要满足以下条件：</p>
-<blockquote>
-<p>A为随机矩阵<br>A是不可约的<br>A是非周期的</p>
-</blockquote>
-<p>随机矩阵又叫概率矩阵或Markov矩阵，满足以下条件：$a_{ij}$为矩阵$A$中第$i$行第$j$列的元素</p>
-<script type="math/tex; mode=display">\forall i=1\dots n,a_{ij}\ge0,</script><script type="math/tex; mode=display">\forall i=1 \dots n,\sum_{j=1}^{n}a_{ij}=1</script><p>显然我们的A矩阵所有元素都大于等于0，并且每一列的元素和都为1</p>
-<blockquote>
-<p>不可约矩阵：方针A是不可约的当且仅当与A对应的有向图是强联通的。有向图G=(V,E)是强联通的当且仅当对每一对节点对u,v∈V，存在从u到v的路径。因为我们在之前设定用户在浏览页面的时候有确定概率通过输入网址的方式访问一个随机网页，所以A矩阵同样满足不可约的要求<br>A是非周期的：所谓周期性，体现在Markov链的周期性上。即若A是周期性的，那么这个Markov链的状态就是周期性变化的。因为A是素矩阵（素矩阵指自身的某个次幂为正矩阵的矩阵），所以A是非周期的。</p>
-</blockquote>
-<p>所以，马尔科夫过程收敛，即PageRank算法经过迭代后是收敛的。<br>最终，求解PR值的公式如下：$lim_{n\to\infty}A^nX$,X是每个网页初始PR值组成的列向量。</p>
-<h2 id="幂法求解PR值"><a href="#幂法求解PR值" class="headerlink" title="幂法求解PR值"></a>幂法求解PR值</h2><p>X 设任意一个初始向量, 即设置初始每个网页的PageRank值均等。一般为1。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">R = AX;</span><br><span class="line"><span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (|X - R| &lt;  e)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//如果最后两次的结果近似或者相同，返回R</span></span><br><span class="line">        <span class="keyword">return</span> R;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        X =R;</span><br><span class="line">        R = AX;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><h3 id="PageRank算法优点"><a href="#PageRank算法优点" class="headerlink" title="PageRank算法优点"></a>PageRank算法优点</h3><p>是一个与查询无关的静态算法，所有网页的PageRank值通过离线计算获得；有效减少在线查询时的计算量，极大降低了查询响应时间。</p>
-<h3 id="PageRank算法缺点"><a href="#PageRank算法缺点" class="headerlink" title="PageRank算法缺点"></a>PageRank算法缺点</h3><ul>
-<li>一些权威网页往往是相互不链接的，比如新浪、搜狐、网易以及腾讯这些大的门户之间，基本是不相互链接的，学术领域也是这样。</li>
-<li>人们的查询具有主题特征，PageRank忽略了主题相关性，导致结果的相关性和主题性降低</li>
-<li>旧的页面等级会比新页面高。因为即使是非常好的新页面也不会有很多上游链接，除非它是某个站点的子站点。</li>
-</ul>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>神经网络最重要的用途是分类，为了让大家对分类有个直观的认识，咱们先看几个例子：</p>
+<ol>
+<li>垃圾邮件识别：现在有一封电子邮件，把出现在里面的所有词汇提取出来，送进一个机器里，机器需要判断这封邮件是否是垃圾邮件。</li>
+<li>疾病判断：病人到医院去做了一大堆肝功、尿检测验，把测验结果送进一个机器里，机器需要判断这个病人是否得病，得的什么病。</li>
+<li>猫狗分类：有一大堆猫、狗照片，把每一张照片送进一个机器里，机器需要判断这幅照片里的东西是猫还是狗。</li>
+</ol>
+<p>这种能自动对输入的东西进行分类的机器，就叫做分类器。</p>
+<p>分类器的输入是一个数值向量，叫做特征（向量）。在第一个例子里，分类器的输入是一堆0、1值，表示字典里的每一个词是否在邮件中出现，比如向量(1,1,0,0,0……)就表示这封邮件里只出现了两个词abandon和abnormal；第二个例子里，分类器的输入是一堆化验指标；第三个例子里，分类器的输入是照片，假如每一张照片都是320*240像素的红绿蓝三通道彩色照片，那么分类器的输入就是一个长度为320*240*3=230400的向量。</p>
+<p>分类器的输出也是数值。第一个例子中，输出1表示邮件是垃圾邮件，输出0则说明邮件是正常邮件；第二个例子中，输出0表示健康，输出1表示有甲肝，输出2表示有乙肝，输出3表示有饼干等等；第三个例子中，输出0表示图片中是狗，输出1表示是猫。</p>
+<p>分类器的目标就是让正确分类的比例尽可能高。一般我们需要首先收集一些样本，人为标记上正确分类结果，然后用这些标记好的数据训练分类器，训练好的分类器就可以在新来的特征向量上工作了。</p>
+<h2 id="神经元"><a href="#神经元" class="headerlink" title="神经元"></a>神经元</h2><p>咱们假设分类器的输入是通过某种途径获得的两个值，输出是0和1，比如分别代表猫和狗。现在有一些样本：</p>
+<p><img src="http://pbfm1j187.bkt.clouddn.com/1.png" alt=""></p>
+<p>大家想想，最简单地把这两组特征向量分开的方法是啥？当然是在两组数据中间画一条竖直线，直线左边是狗，右边是猫，分类器就完成了。以后来了新的向量，凡是落在直线左边的都是狗，落在右边的都是猫。<br>一条直线把平面一分为二，一个平面把三维空间一分为二，一个n-1维超平面把n维空间一分为二，两边分属不同的两类，这种分类器就叫做神经元。</p>
+<p>大家都知道平面上的直线方程是$ax+by+c=0$，等式左边大于零和小于零分别表示点$(x,y)$在直线的一侧还是另一侧，把这个式子推广到n维空间里，直线的高维形式称为超平面，方程表示为：$h = a_1x_1+a_2 x_2+…+a_nx_n+a_0=0$<br>神经元就是当h大于0时输出1，h小于0时输出0这么一个模型，它的实质就是 <strong>把特征空间一切两半，认为两瓣分别属两个类。</strong> 你恐怕再也想不到比这更简单的分类器了，它是McCulloch和Pitts在1943年想出来了。</p>
+<p>这个模型有点像人脑中的神经元：从多个感受器接受电信号$x_1, x_2,\dots,x_n$，进行处理（加权相加再偏移一点，即判断输入是否在某条直线h=0的一侧），发出电信号（在正确的那侧发出1，否则不发信号，可以认为是发出0），这就是它叫神经元的原因。</p>
+<p>当然，上面那幅图我们是开了上帝视角才知道“一条竖直线能分开两类”，在实际训练神经元时，我们并不知道特征是怎么抱团的。神经元模型的一种学习方法称为Hebb算法：</p>
+<p>先随机选一条直线/平面/超平面，然后把样本一个个拿过来，如果这条直线分错了，说明这个点分错边了，就稍微把直线移动一点，让它靠近这个样本，争取跨过这个样本，让它跑到直线正确的一侧；如果直线分对了，它就暂时停下不动。因此训练神经元的过程就是这条直线不断在跳舞，最终跳到两个类之间的竖直线位置。</p>
+<h2 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h2><p>MP神经元有几个显著缺点。首先它把直线一侧变为0，另一侧变为1，这东西不可微，不利于数学分析。人们用一个和0-1阶跃函数类似但是更平滑的函数Sigmoid函数来代替它（Sigmoid函数自带一个尺度参数，可以控制神经元对离超平面距离不同的点的响应，这里忽略它），从此神经网络的训练就可以用梯度下降法来构造了，这就是有名的反向传播算法。</p>
+<p>神经元的另一个缺点是：它只能切一刀！你给我说说一刀怎么能把下面这两类分开吧。</p>
+<p><img src="http://pbfm1j187.bkt.clouddn.com/5.2.jpg" alt=""></p>
+<p>解决办法是多层神经网络，底层神经元的输出是高层神经元的输入。我们可以在中间横着砍一刀，竖着砍一刀，然后把左上和右下的部分合在一起，与右上的左下部分分开；也可以围着左上角的边沿砍10刀把这一部分先挖出来，然后和右下角合并。<br><strong>每砍一刀，其实就是使用了一个神经元</strong>，把不同砍下的半平面做交、并等运算，就是把这些神经元的输出当作输入，后面再连接一个神经元。这个例子中特征的形状称为异或，这种情况一个神经元搞不定，但是两层神经元就能正确对其进行分类。</p>
+<p>只要你能砍足够多刀，把结果拼在一起，什么奇怪形状的边界神经网络都能够表示，所以说神经网络 <strong>在理论上</strong> 可以表示很复杂的函数/空间分布。但是真实的神经网络是否能摆动到正确的位置还要看网络初始值设置、样本容量和分布。</p>
+<p>神经网络神奇的地方在于它的每一个组件非常简单——把空间切一刀+某种激活函数(0-1阶跃、sigmoid、max-pooling)，但是可以一层一层级联。输入向量连到许多神经元上，这些神经元的输出又连到一堆神经元上，这一过程可以重复很多次。这和人脑中的神经元很相似：每一个神经元都有一些神经元作为其输入，又是另一些神经元的输入，数值向量就像是电信号，在不同神经元之间传导，每一个神经元只有满足了某种条件才会发射信号到下一层神经元。当然，人脑比神经网络模型复杂很多：人工神经网络一般不存在环状结构；人脑神经元的电信号不仅有强弱，还有时间缓急之分，就像莫尔斯电码，在人工神经网络里没有这种复杂的信号模式。</p>
+<p><img src="http://pbfm1j187.bkt.clouddn.com/5.2.jpg" alt=""></p>
+<p>神经网络的训练依靠反向传播算法：最开始输入层输入特征向量，网络层层计算获得输出，输出层发现输出和正确的类号不一样，这时它就让最后一层神经元进行参数调整，最后一层神经元不仅自己调整参数，还会勒令连接它的倒数第二层神经元调整，层层往回退着调整。经过调整的网络会在样本上继续测试，如果输出还是老分错，继续来一轮回退调整，直到网络输出满意为止。</p>
+<h2 id="大型神经网络"><a href="#大型神经网络" class="headerlink" title="大型神经网络"></a>大型神经网络</h2><p>我们不禁要想了，假如我们的这个网络有10层神经元，第8层第2015个神经元，它有什么含义呢？我们知道它把第七层的一大堆神经元的输出作为输入，第七层的神经元又是以第六层的一大堆神经元做为输入，那么这个特殊第八层的神经元，它会不会代表了某种抽象的概念？</p>
+<p>就好比你的大脑里有一大堆负责处理声音、视觉、触觉信号的神经元，它们对于不同的信息会发出不同的信号，那么会不会有这么一个神经元（或者神经元小集团），它收集这些信号，分析其是否符合某个抽象的概念，和其他负责更具体和更抽象概念的神经元进行交互。</p>
+<p>准确率也完爆先前所有分类器。纽约大学的Zeiler和Fergusi把这个网络中某些神经元挑出来，把在其上响应特别大的那些输入图像放在一起，看它们有什么共同点。他们发现中间层的神经元响应了某些十分抽象的特征。2012年多伦多大学的Krizhevsky等人构造了一个超大型卷积神经网络，有9层，共65万个神经元，6千万个参数。网络的输入是图片，输出是1000个类，比如小虫、美洲豹、救生船等等。这个模型的训练需要海量图片，它的分类</p>
+<p>第一层神经元主要负责识别颜色和简单纹理</p>
+<p><img src="http://pbfm1j187.bkt.clouddn.com/5.4.jpg" alt=""></p>
+<p>第二层的一些神经元可以识别更加细化的纹理，比如布纹、刻度、叶纹。</p>
+<p><img src="http://pbfm1j187.bkt.clouddn.com/5.5.jpg" alt=""></p>
+<p>第三层的一些神经元负责感受黑夜里的黄色烛光、鸡蛋黄、高光。</p>
+<p><img src="http://pbfm1j187.bkt.clouddn.com/5.6.jpg" alt=""></p>
+<p>第四层的一些神经元负责识别萌狗的脸、七星瓢虫和一堆圆形物体的存在。</p>
+<p><img src="http://pbfm1j187.bkt.clouddn.com/5.7.jpg" alt=""></p>
+<p>第五层的一些神经元可以识别出花、圆形屋顶、键盘、鸟、黑眼圈动物。</p>
+<p><img src="http://pbfm1j187.bkt.clouddn.com/5.8.jpg" alt=""></p>
+<p>这里面的概念并不是整个网络的输出，是网络中间层神经元的偏好，它们为后面的神经元服务。虽然每一个神经元都傻不拉几的（只会切一刀），但是65万个神经元能学到的东西还真是深邃呢。</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>[1] <a href="https://www.zhihu.com/question/22553761" target="_blank" rel="noopener">https://www.zhihu.com/question/22553761</a></p>
 
       
     </div>
@@ -472,7 +447,7 @@
       </li>
       <li class="post-copyright-link">
         <strong>本文链接：</strong>
-        <a href="/2018/07/07/PageRank算法学习/" title="PageRank算法学习">2018/07/07/PageRank算法学习/</a>
+        <a href="/2018/07/07/神经网络/" title="神经网络">2018/07/07/神经网络/</a>
       </li>
       <li class="post-copyright-license">
         <strong>版权： </strong>
@@ -484,7 +459,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/数据挖掘/" rel="tag"># 数据挖掘</a>
+            <a href="/tags/神经网络/" rel="tag"># 神经网络</a>
           
         </div>
       
@@ -497,8 +472,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/06/北航2016年机试第一题/" rel="next" title="北航2016年机试第一题">
-                <i class="fa fa-chevron-left"></i> 北航2016年机试第一题
+              <a href="/2018/07/07/PageRank算法学习/" rel="next" title="PageRank算法学习">
+                <i class="fa fa-chevron-left"></i> PageRank算法学习
               </a>
             
           </div>
@@ -506,10 +481,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/07/神经网络/" rel="prev" title="神经网络">
-                神经网络 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -661,7 +632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PageRank算法学习"><span class="nav-number">1.</span> <span class="nav-text">PageRank算法学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言：如何度量一个网页的本身的重要性"><span class="nav-number">1.1.</span> <span class="nav-text">引言：如何度量一个网页的本身的重要性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PageRank算法的相关概念"><span class="nav-number">1.2.</span> <span class="nav-text">PageRank算法的相关概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PR值"><span class="nav-number">1.2.1.</span> <span class="nav-text">PR值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阻尼系数"><span class="nav-number">1.2.2.</span> <span class="nav-text">阻尼系数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PageRank算法核心思想"><span class="nav-number">1.3.</span> <span class="nav-text">PageRank算法核心思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PR值的计算"><span class="nav-number">1.4.</span> <span class="nav-text">PR值的计算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PR值的取决因素"><span class="nav-number">1.4.1.</span> <span class="nav-text">PR值的取决因素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法过程"><span class="nav-number">1.5.</span> <span class="nav-text">算法过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#幂法求解PR值"><span class="nav-number">1.6.</span> <span class="nav-text">幂法求解PR值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">1.7.</span> <span class="nav-text">小结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PageRank算法优点"><span class="nav-number">1.7.1.</span> <span class="nav-text">PageRank算法优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PageRank算法缺点"><span class="nav-number">1.7.2.</span> <span class="nav-text">PageRank算法缺点</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#神经网络入门"><span class="nav-number">1.</span> <span class="nav-text">神经网络入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">1.2.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神经元"><span class="nav-number">1.3.</span> <span class="nav-text">神经元</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络"><span class="nav-number">1.4.</span> <span class="nav-text">神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大型神经网络"><span class="nav-number">1.5.</span> <span class="nav-text">大型神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">1.6.</span> <span class="nav-text">References</span></a></li></ol></li></ol></div>
             
 
           </div>
