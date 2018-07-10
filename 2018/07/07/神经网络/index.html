@@ -96,7 +96,7 @@
 <meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/5.6.jpg">
 <meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/5.7.jpg">
 <meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/5.8.jpg">
-<meta property="og:updated_time" content="2018-07-10T07:18:58.410Z">
+<meta property="og:updated_time" content="2018-07-10T07:23:20.048Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="神经网络">
 <meta name="twitter:description" content="摘要 最近在学习TensorFlow，接触到了神经网络的学习。 分类神经网络最重要的用途是分类，为了让大家对分类有个直观的认识，咱们先看几个例子：  垃圾邮件识别：现在有一封电子邮件，把出现在里面的所有词汇提取出来，送进一个机器里，机器需要判断这封邮件是否是垃圾邮件。 疾病判断：病人到医院去做了一大堆肝功、尿检测验，把测验结果送进一个机器里，机器需要判断这个病人是否得病，得的什么病。 猫狗分类：有">
@@ -348,7 +348,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,732
+                  2,738
                 </span>
               
 
@@ -393,7 +393,7 @@
 <p>这个模型有点像人脑中的神经元：从多个感受器接受电信号$x_1, x_2,\dots,x_n$，进行处理（加权相加再偏移一点，即判断输入是否在某条直线h=0的一侧），发出电信号（在正确的那侧发出1，否则不发信号，可以认为是发出0），这就是它叫神经元的原因。</p>
 <p>当然，上面那幅图我们是开了上帝视角才知道“一条竖直线能分开两类”，在实际训练神经元时，我们并不知道特征是怎么抱团的。神经元模型的一种学习方法称为Hebb算法：</p>
 <p>先随机选一条直线/平面/超平面，然后把样本一个个拿过来，如果这条直线分错了，说明这个点分错边了，就稍微把直线移动一点，让它靠近这个样本，争取跨过这个样本，让它跑到直线正确的一侧；如果直线分对了，它就暂时停下不动。因此训练神经元的过程就是这条直线不断在跳舞，最终跳到两个类之间的竖直线位置。</p>
-<h1 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h1><p>MP神经元有几个显著缺点。首先它把直线一侧变为0，另一侧变为1，这东西不可微，不利于数学分析。人们用一个和0-1阶跃函数类似但是更平滑的函数Sigmoid函数来代替它（Sigmoid函数自带一个尺度参数，可以控制神经元对离超平面距离不同的点的响应，这里忽略它），从此神经网络的训练就可以用梯度下降法来构造了，这就是有名的反向传播算法。</p>
+<h1 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h1><h2 id="小型神经网络"><a href="#小型神经网络" class="headerlink" title="小型神经网络"></a>小型神经网络</h2><p>MP神经元有几个显著缺点。首先它把直线一侧变为0，另一侧变为1，这东西不可微，不利于数学分析。人们用一个和0-1阶跃函数类似但是更平滑的函数Sigmoid函数来代替它（Sigmoid函数自带一个尺度参数，可以控制神经元对离超平面距离不同的点的响应，这里忽略它），从此神经网络的训练就可以用梯度下降法来构造了，这就是有名的反向传播算法。</p>
 <p>神经元的另一个缺点是：它只能切一刀！你给我说说一刀怎么能把下面这两类分开吧。</p>
 <p><img src="http://pbfm1j187.bkt.clouddn.com/5.2.jpg" alt=""></p>
 <p>解决办法是多层神经网络，底层神经元的输出是高层神经元的输入。我们可以在中间横着砍一刀，竖着砍一刀，然后把左上和右下的部分合在一起，与右上的左下部分分开；也可以围着左上角的边沿砍10刀把这一部分先挖出来，然后和右下角合并。<br><strong>每砍一刀，其实就是使用了一个神经元</strong>，把不同砍下的半平面做交、并等运算，就是把这些神经元的输出当作输入，后面再连接一个神经元。这个例子中特征的形状称为异或，这种情况一个神经元搞不定，但是两层神经元就能正确对其进行分类。</p>
@@ -636,7 +636,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分类"><span class="nav-number">2.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#神经元"><span class="nav-number">3.</span> <span class="nav-text">神经元</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#神经网络"><span class="nav-number">4.</span> <span class="nav-text">神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#大型神经网络"><span class="nav-number">4.1.</span> <span class="nav-text">大型神经网络</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">5.</span> <span class="nav-text">References</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分类"><span class="nav-number">2.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#神经元"><span class="nav-number">3.</span> <span class="nav-text">神经元</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#神经网络"><span class="nav-number">4.</span> <span class="nav-text">神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#小型神经网络"><span class="nav-number">4.1.</span> <span class="nav-text">小型神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大型神经网络"><span class="nav-number">4.2.</span> <span class="nav-text">大型神经网络</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">5.</span> <span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
