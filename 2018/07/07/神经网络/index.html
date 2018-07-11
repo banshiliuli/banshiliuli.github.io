@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/5.8.jpg">
 <meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/123312.png">
 <meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/1231211.png">
-<meta property="og:updated_time" content="2018-07-11T14:31:06.340Z">
+<meta property="og:updated_time" content="2018-07-11T14:48:26.832Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="神经网络">
 <meta name="twitter:description" content="摘要 最近在学习TensorFlow，接触到了神经网络的学习。 分类神经网络最重要的用途是分类，为了让大家对分类有个直观的认识，咱们先看几个例子：  垃圾邮件识别：现在有一封电子邮件，把出现在里面的所有词汇提取出来，送进一个机器里，机器需要判断这封邮件是否是垃圾邮件。 疾病判断：病人到医院去做了一大堆肝功、尿检测验，把测验结果送进一个机器里，机器需要判断这个病人是否得病，得的什么病。 猫狗分类：有">
@@ -350,7 +350,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,346
+                  3,353
                 </span>
               
 
@@ -430,7 +430,11 @@
 <h2 id="神经网络-1"><a href="#神经网络-1" class="headerlink" title="神经网络"></a>神经网络</h2><p>由多个神经元组成，每个神经元接收到来自n个其他神经元传递过来的输入信号，这些输入信号通过带权重的连接进行传递，神经元接收到的总输入值将与神经元的阈值进行比较，然后通过激活函数处理以产生神经元的输出。</p>
 <p>多个神经元互相连接，形成了神经网络。</p>
 <h2 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h2><p>理想中的激活函数是阶跃函数，它将输入值映射为输出值0/1，显然1对应于神经元兴奋，0对应于神经元抑制。</p>
-<script type="math/tex; mode=display">sgn(x)=</script><p>然而，阶跃函数具有不连续、不光滑等不太好的性值，因此实际常用Sigmoid函数作为激活函数，它把可能在较大范围内变化的输入值挤压到$(0,1)$输出值范围内，因此有时也成为挤压函数。</p>
+<script type="math/tex; mode=display">sgn(x)=
+\begin{cases}
+1,  & x \ge 0\\
+0,  & x < 0
+\end{cases}</script><p>然而，阶跃函数具有不连续、不光滑等不太好的性值，因此实际常用Sigmoid函数作为激活函数，它把可能在较大范围内变化的输入值挤压到$(0,1)$输出值范围内，因此有时也成为挤压函数。</p>
 <script type="math/tex; mode=display">sigmoid(x)=\frac{1}{1+e^{-x}}</script><p>那么激活函数应该满足哪些条件？</p>
 <ol>
 <li>处处可微，可微分才可能求导，求极值</li>
@@ -445,7 +449,7 @@
 <h2 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a>交叉熵</h2><p>现在的训练程度和圆满之间的距离，距离越小越好，交叉熵可以作为一个损失函数来衡量和目标之间的距离。</p>
 <h2 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h2><p>梯度是改变率或斜度的另一个称呼，数学解释是导数。</p>
 <p>对于求解损失函数最小值的问题，朝着梯度下降的方向走，就可以找到最优值。</p>
-<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>[1] <a href="https://www.zhihu.com/question/22553761" target="_blank" rel="noopener">https://www.zhihu.com/question/22553761</a></p>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>[1] <a href="https://www.zhihu.com/question/22553761" target="_blank" rel="noopener">https://www.zhihu.com/question/22553761</a><br>[2] <a href="https://www.jianshu.com/p/696bde1641d8" target="_blank" rel="noopener">https://www.jianshu.com/p/696bde1641d8</a></p>
 
       
     </div>
