@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="C++," />
+  <meta name="keywords" content="Python,数组," />
 
 
 
@@ -79,21 +79,20 @@
 
 
 
-<meta name="description" content="Two Sum给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。 你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。">
-<meta name="keywords" content="C++">
+<meta name="description" content="Remove Duplicates from Sorted Array给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。 不要使用额外的数组空间，你必须在原地修改输入数组并在使用 $O(1)$ 额外空间的条件下完成。">
+<meta name="keywords" content="Python,数组">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode | Two Sum">
-<meta property="og:url" content="http://yoursite.com/2018/07/26/LeetCode-Two-Sum/index.html">
+<meta property="og:title" content="LeetCode | Remove Duplicates from Sorted Array">
+<meta property="og:url" content="http://yoursite.com/2018/09/30/LeetCode-26-Remove-Duplicates-from-Sorted-Array/index.html">
 <meta property="og:site_name" content="Coolfile&#39;s Blog">
-<meta property="og:description" content="Two Sum给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。 你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。">
+<meta property="og:description" content="Remove Duplicates from Sorted Array给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。 不要使用额外的数组空间，你必须在原地修改输入数组并在使用 $O(1)$ 额外空间的条件下完成。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/l111.PNG">
-<meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/%E7%9C%8B23.PNG">
-<meta property="og:updated_time" content="2018-07-27T01:32:06.376Z">
+<meta property="og:image" content="http://pbfm1j187.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180930145333.jpg">
+<meta property="og:updated_time" content="2018-09-30T06:58:27.772Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode | Two Sum">
-<meta name="twitter:description" content="Two Sum给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。 你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。">
-<meta name="twitter:image" content="http://pbfm1j187.bkt.clouddn.com/l111.PNG">
+<meta name="twitter:title" content="LeetCode | Remove Duplicates from Sorted Array">
+<meta name="twitter:description" content="Remove Duplicates from Sorted Array给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。 不要使用额外的数组空间，你必须在原地修改输入数组并在使用 $O(1)$ 额外空间的条件下完成。">
+<meta name="twitter:image" content="http://pbfm1j187.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180930145333.jpg">
 
 
 
@@ -123,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/26/LeetCode-Two-Sum/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/30/LeetCode-26-Remove-Duplicates-from-Sorted-Array/"/>
 
 
 
 
 
-  <title>LeetCode | Two Sum | Coolfile's Blog</title>
+  <title>LeetCode | Remove Duplicates from Sorted Array | Coolfile's Blog</title>
   
 
 
@@ -258,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/26/LeetCode-Two-Sum/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/30/LeetCode-26-Remove-Duplicates-from-Sorted-Array/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="学妹的绯闻男友">
@@ -275,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode | Two Sum</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode | Remove Duplicates from Sorted Array</h1>
         
 
         <div class="post-meta">
@@ -287,8 +286,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-26T23:27:16+08:00">
-                2018-07-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-30T14:36:27+08:00">
+                2018-09-30
               </time>
             
 
@@ -341,7 +340,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  512
+                  575
                 </span>
               
 
@@ -366,25 +365,24 @@
       
 
       
-        <h2 id="Two-Sum"><a href="#Two-Sum" class="headerlink" title="Two Sum"></a>Two Sum</h2><p>给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。</p>
-<p>你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。</p>
+        <h2 id="Remove-Duplicates-from-Sorted-Array"><a href="#Remove-Duplicates-from-Sorted-Array" class="headerlink" title="Remove Duplicates from Sorted Array"></a>Remove Duplicates from Sorted Array</h2><p>给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。</p>
+<p>不要使用额外的数组空间，你必须在原地修改输入数组并在使用 $O(1)$ 额外空间的条件下完成。</p>
 <a id="more"></a>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>给定$nums = [2,7,11,15],target=9$</p>
-<p>所以返回$[0,1]$</p>
-<h2 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h2><p>先找到数组中的一个数$a$，再遍历一遍数组，查找是否存在一个数为$b=target-a$</p>
-<p>总计需要遍历两遍数组，才可以找到满足条件的两个数。算法的时间复杂度为$O(n^2)$</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">		<span class="keyword">int</span> len = nums.size();</span><br><span class="line">		<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>; t &lt; len; ++t)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> t1 = t + <span class="number">1</span>; t1 &lt; len; ++t1)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span> (nums[t] + nums[t1] == target)</span><br><span class="line">				&#123;</span><br><span class="line">					i = t;</span><br><span class="line">					j = t1;</span><br><span class="line">					res.push_back(i);</span><br><span class="line">					res.push_back(j);</span><br><span class="line">					<span class="keyword">return</span> res;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>执行用时84ms</p>
-<p><img src="http://pbfm1j187.bkt.clouddn.com/l111.PNG" alt="执行用时分布图表"></p>
-<h2 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h2><p>降低时间复杂度完成要求</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> n = nums.size();</span><br><span class="line">		<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">		<span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; m;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> t = target - nums[i];</span><br><span class="line">			<span class="keyword">auto</span> it = m.find(t);</span><br><span class="line">			<span class="keyword">if</span> (it != m.end())</span><br><span class="line">			&#123;</span><br><span class="line">				res.push_back(it-&gt;second);</span><br><span class="line">				res.push_back(i);</span><br><span class="line">				<span class="keyword">return</span> res;</span><br><span class="line">			&#125;</span><br><span class="line">			m[nums[i]] = i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>遍历数组的同时构建哈希表。</p>
-<p>按照示例而言，$i=0 =&gt; nums[i]=2,t=7$，$m$中没有索引为7的键值对，然后$m[2]=0$。</p>
-<p>$i=1 =&gt; nums[i]=7,t=2$，$m$中有索引为2的键值对，然后将$it(2,0)$中的0压入，再将此时的$i=1$压入，返回函数。</p>
-<p>执行用时8ms</p>
-<p><img src="http://pbfm1j187.bkt.clouddn.com/%E7%9C%8B23.PNG" alt="执行用时分布图表"></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>第一次做LeetCode，也是第一次用map，对于提交class的方式不是很习惯，但是写完之后，感觉也是学习了很多，STL使得C++使用起来更加方便，面向对象的思想也逐步有了新的理解。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1] <a href="https://blog.csdn.net/lanxu_yy/article/details/11679415" target="_blank" rel="noopener">https://blog.csdn.net/lanxu_yy/article/details/11679415</a><br>[2] <a href="https://www.cnblogs.com/empty16/p/6395813.html" target="_blank" rel="noopener">https://www.cnblogs.com/empty16/p/6395813.html</a><br>[3] <a href="https://blog.csdn.net/qq_15505637/article/details/52484336" target="_blank" rel="noopener">https://blog.csdn.net/qq_15505637/article/details/52484336</a></p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>给定数组$nums = [1,1,2]$, </p>
+<p>函数应该返回新的长度 2 , 并且原数组$nums$的前两个元素被修改为 1, 2。 </p>
+<p>你不需要考虑数组中超出新长度后面的元素。</p>
+<p>给定$nums = [0,0,1,1,1,2,2,3,3,4]$,</p>
+<p>函数应该返回新的长度 5, 并且原数组$nums$的前五个元素被修改为 0, 1, 2, 3, 4。</p>
+<p>你不需要考虑数组中超出新长度后面的元素。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>最开始的想法是二层循环，每找到一对相等的数$i$和$j$$(i&lt;j)$，就将$j\to n-1$之间的数据往前提一位，覆盖掉重复的数值。</p>
+<p>没有注意到<strong>题目给定的数据是有序的</strong>，蛮干了起来，效率也就比较低。</p>
+<p>后用一个下标$index$来标记下一个不重复的数字存放的位置，另一个下标$start$来表示当前是和哪个数字来比较有没有重复。遍历数字，如果不重复则放到$index$位置，后移$index$，并更新$start$位置；否则继续遍历。返回$index$即为不重复数组的长度。</p>
+<p>因为数组是有序的，所以遍历过程中，遇到两个数值不等，则必然后者大于前者，自然后面也不可能存在与前者相等的数值，$start$则直接变为后者对应的数值继</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeDuplicates</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        index = <span class="number">1</span></span><br><span class="line">        start = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[start] != nums[i]:</span><br><span class="line">                nums[index] = nums[i]</span><br><span class="line">                index = index + <span class="number">1</span></span><br><span class="line">                start = i</span><br><span class="line">        <span class="keyword">return</span> index</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">assert</span> Solution().removeDuplicates([<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>]) == <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>代码中用到了$assert$,可以用于判断是否出错，出错可以增加一些字符串信息来提示。</p>
+<p>方法参考于$github$上的前辈。</p>
+<p><img src="http://pbfm1j187.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180930145333.jpg" alt=""></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1] <a href="https://github.com/kamyu104/LeetCode" target="_blank" rel="noopener">https://github.com/kamyu104/LeetCode</a></p>
 
       
     </div>
@@ -416,7 +414,7 @@
       </li>
       <li class="post-copyright-link">
         <strong>本文链接：</strong>
-        <a href="/2018/07/26/LeetCode-Two-Sum/" title="LeetCode | Two Sum">2018/07/26/LeetCode-Two-Sum/</a>
+        <a href="/2018/09/30/LeetCode-26-Remove-Duplicates-from-Sorted-Array/" title="LeetCode | Remove Duplicates from Sorted Array">2018/09/30/LeetCode-26-Remove-Duplicates-from-Sorted-Array/</a>
       </li>
       <li class="post-copyright-license">
         <strong>版权： </strong>
@@ -428,7 +426,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C/" rel="tag"># C++</a>
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/数组/" rel="tag"># 数组</a>
           
         </div>
       
@@ -441,8 +441,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/13/机器学习笔记/" rel="next" title="机器学习笔记">
-                <i class="fa fa-chevron-left"></i> 机器学习笔记
+              <a href="/2018/07/26/LeetCode-Two-Sum/" rel="next" title="LeetCode | Two Sum">
+                <i class="fa fa-chevron-left"></i> LeetCode | Two Sum
               </a>
             
           </div>
@@ -450,10 +450,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/30/LeetCode-26-Remove-Duplicates-from-Sorted-Array/" rel="prev" title="LeetCode | Remove Duplicates from Sorted Array">
-                LeetCode | Remove Duplicates from Sorted Array <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -605,7 +601,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Two-Sum"><span class="nav-number">1.</span> <span class="nav-text">Two Sum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">2.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路1"><span class="nav-number">3.</span> <span class="nav-text">思路1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路2"><span class="nav-number">4.</span> <span class="nav-text">思路2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Remove-Duplicates-from-Sorted-Array"><span class="nav-number">1.</span> <span class="nav-text">Remove Duplicates from Sorted Array</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">2.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">3.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
